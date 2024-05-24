@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Lista</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>To Do List</h1>
+    <ul>
+        {% for todo_list in todo_lists %}
+            <li><a href="{% url 'add_item' todo_list.id %}">{{ todo_list.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_list' %}">Criar Nova Lista</a>
+
+    {% if todo_lists %}
+    {% endif %}
+    <footer>
+        <p>Desenvolvido por <a href="https://www.instagram.com/cunhoso" target="_blank">João Cunha</a></p>
+    </footer>
+</body>
+</html>

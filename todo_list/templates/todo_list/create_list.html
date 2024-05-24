@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Nova Lista</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Nova Lista:</h1>
+    <form action="{% url 'create_list' %}" method="post">
+        {% csrf_token %}
+        <label for="name">Nome da Lista:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Criar</button>
+    </form>
+    <a href="{% url 'index' %}">Página Inicial</a>
+    <footer>
+        <p>Desenvolvido por <a href="https://www.instagram.com/cunhoso" target="_blank">João Cunha</a></p>
+    </footer>
+</body>
+</html>
